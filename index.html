@@ -8,6 +8,8 @@
     <!-- <link rel="stylesheet" href="tooltip.css"> -->
     <link rel="stylesheet" href="glassmorph.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="responsive.css">
+    <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.co/gsap@3/dist/gsap.min.js"></script>
     <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
 
@@ -26,18 +28,18 @@
         </linearGradient>
         
         <!-- Círculo Izquierdo -->
-        <linearGradient id="grad2" x1="0%" y1="0%" x2="100%" y2="85%">
+        <!-- <linearGradient id="grad2" x1="0%" y1="0%" x2="100%" y2="85%">
         <stop offset="0%" stop-color="#f5eacc" />
         <stop offset="80%" stop-color="#e0c677" />
         <stop offset="110%" stop-color="#ebd8a0" />      
-        </linearGradient>
+        </linearGradient> -->
         
         <!-- Círculo Derecho -->
-        <linearGradient id="grad3" x1="0%" y1="0%" x2="100%" y2="85%">
+        <!-- <linearGradient id="grad3" x1="0%" y1="0%" x2="100%" y2="85%">
             <stop offset="0%" stop-color="#54e2fe" />
             <stop offset="80%" stop-color="#049afd" />
             <stop offset="110%" stop-color="#2aaffc" />      
-            </linearGradient>
+            </linearGradient> -->
 
         <linearGradient id="grad4" x1="0%" y1="0%" x2="80%" y2="70%">
         <stop offset="0%" stop-color="rgba(255,255,255,0.75)" />
@@ -82,9 +84,12 @@
     </g>
 </svg>
 
-</body> 
-<p id="titulo" class="title">Akcredito</p>
-        <p id="subtitulo" class="subtitle">Global Loyalty Cards for Europe and LatinAmerica.</p>
+<div class="fixed inset-x-0 bottom-6 sm:bottom-10 flex flex-col items-center text-center px-4 pointer-events-none z-10">
+    <p id="titulo" class="title text-white font-bold tracking-wider drop-shadow-lg">Akcredito</p>
+    <p id="subtitulo" class="subtitle text-white/90 mt-1 tracking-wide drop-shadow">Global Loyalty Cards for Europe and LatinAmerica.</p>
+</div>
+
+</body>
 
 <script src="./animacion.js"></script>
 </html>

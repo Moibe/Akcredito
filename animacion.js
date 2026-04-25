@@ -31,16 +31,35 @@ gsap.timeline()
         
 
 
-function centerMain(){ gsap.set('.main', {x:'50%', xPercent:-50, y:'50%', yPercent:-50}); }
+function centerMain(){
+  const w = window.innerWidth;
+  const h = window.innerHeight;
+  const designW = 760;
+  const designH = 620;
+  const scale = Math.min(1, w / designW, h / designH);
+  gsap.set('.main', {
+    x:'50%', xPercent:-50,
+    y:'50%', yPercent:-50,
+    scale: scale,
+    transformOrigin: '50% 50%'
+  });
+}
 window.onresize = centerMain;
 
-window.onmousemove = (e)=> {
-  let winPercent = { x:e.clientX/window.innerWidth, y:e.clientY/window.innerHeight },
-      distFromCenter = 1 - Math.abs((e.clientX - window.innerWidth/2)/window.innerWidth*2);
-  
+function applyParallax(x, y) {
+  let winPercent = { x: x/window.innerWidth, y: y/window.innerHeight },
+      distFromCenter = 1 - Math.abs((x - window.innerWidth/2)/window.innerWidth*2);
+
   gsap.timeline({defaults:{duration:0.5, overwrite:'auto'}})
       .to('.card',        {rotation:-7+9*winPercent.x}, 0)
-      .to('.fillLight',   {opacity:distFromCenter}, 0)  
-      .to('.bg',          {x:100-200*winPercent.x, y:20-40*winPercent.y}, 0) 
+      .to('.fillLight',   {opacity:distFromCenter}, 0)
+      .to('.bg',          {x:100-200*winPercent.x, y:20-40*winPercent.y}, 0)
 }
+
+window.addEventListener('mousemove', (e) => applyParallax(e.clientX, e.clientY));
+window.addEventListener('touchmove', (e) => {
+  if (e.touches.length > 0) {
+    applyParallax(e.touches[0].clientX, e.touches[0].clientY);
+  }
+}, { passive: true });
 

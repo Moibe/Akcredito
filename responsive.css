@@ -1,0 +1,132 @@
+/* Responsive overrides — Tailwind is loaded but these handle the
+   absolute-positioned content inherited from style.css that breaks on mobile. */
+
+html, body {
+  overflow-y: auto;
+  min-height: 100%;
+}
+
+/* Title and subtitle (index.html) */
+#titulo,
+.title {
+  font-size: clamp(1.75rem, 6vw, 3rem);
+  width: 100%;
+  text-align: center;
+  padding: 0 1rem;
+}
+
+#subtitulo,
+.subtitle {
+  font-size: clamp(0.85rem, 2.4vw, 1.25rem);
+  width: 100%;
+  text-align: center;
+  padding: 0 1rem;
+}
+
+/* Dashboard text */
+.texto_totales,
+.numero_totales {
+  font-size: clamp(2.25rem, 9vw, 5rem) !important;
+  width: 100%;
+  text-align: center;
+  padding: 0 1rem;
+}
+
+/* Tablet and below — reflow absolute elements into normal flow */
+@media (max-width: 768px) {
+  html, body {
+    overflow-x: hidden;
+    overflow-y: auto;
+    height: auto;
+    min-height: 100vh;
+  }
+
+  .svg-center {
+    height: 100vh;
+    min-height: 520px;
+  }
+
+  /* paypalpromo.html — main info block */
+  .info_main {
+    position: static;
+    transform: none;
+    width: 100%;
+    text-align: center;
+    padding: 1.25rem 1rem;
+    color: #fff;
+    background: rgba(0, 0, 0, 0.25);
+  }
+
+  .info_main p {
+    font-size: clamp(0.9rem, 3.5vw, 1.1rem);
+    margin: 0.4rem 0;
+  }
+
+  .divBotonObten {
+    padding-left: 0;
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+  }
+
+  /* Disclaimer at bottom */
+  .disclaimer {
+    position: static;
+    transform: none;
+    width: 100%;
+    text-align: center;
+    padding: 0.75rem 1rem;
+    font-size: clamp(0.75rem, 2.8vw, 0.95rem);
+  }
+
+  /* Initial info block */
+  .info_init {
+    position: static;
+    transform: none;
+    width: 100%;
+    padding: 1rem;
+  }
+
+  #divBoton {
+    position: static;
+    transform: none;
+    left: auto;
+    top: auto;
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+  }
+
+  .contenedor_proceder {
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  /* Pop-up rules window */
+  .pop-up {
+    width: 90% !important;
+    max-width: 360px;
+    margin: 0 auto;
+  }
+
+  /* Dark/light toggle — keep visible but tighter to edge */
+  .dark-light {
+    bottom: 16px !important;
+    right: 16px !important;
+  }
+
+  input[type=submit] {
+    float: none;
+    width: auto;
+  }
+}
+
+/* Very small phones */
+@media (max-width: 380px) {
+  .info_main p {
+    font-size: 0.85rem;
+  }
+}

@@ -8,6 +8,8 @@
     <!-- <link rel="stylesheet" href="tooltip.css"> -->
     <link rel="stylesheet" href="glassmorph.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="responsive.css">
+    <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.co/gsap@3/dist/gsap.min.js"></script>
     <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
 
@@ -88,9 +90,12 @@
     </g>
 </svg>
 
-</body> 
-<p class="texto_totales" id="text-total-guias">Total Guías</p>
-<p class="numero_totales">1288</p>
+<div class="fixed inset-x-0 top-[15%] flex flex-col items-center text-center px-4 pointer-events-none z-10 gap-2 sm:gap-4">
+    <p class="texto_totales !static !transform-none m-0" id="text-total-guias">Total Guías</p>
+    <p class="numero_totales !static !transform-none m-0">1288</p>
+</div>
+
+</body>
 
 <script src="./animacion.js"></script>
 </html>
